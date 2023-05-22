@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TagTree</h1>
+        <h1>Login</h1>
+        <span id="error-message" class="error"><?php if(isset($_GET['error'])) echo htmlspecialchars($_GET['error']); ?></span><br><br>
+        <form action="login.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br><br>
+            <input type="submit" value="Sign In">
+        </form>
+        <br>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <script>
+        // Get the error message from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+
+        // Display the error message
+        if (error) {
+            document.getElementById('error-message').textContent = error;
+        }
+    </script>
+    <footer>SHANE AUDREY R. TAGPUNO</footer>
+</body>
+</html>
